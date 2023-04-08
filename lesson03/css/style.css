@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Open+Sans&display=swap');
+
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    font: 16px/19px'Open Sans';
+}
+
+/* Main font Open Sans */
+/* Heading fonts Balsamiq Sans */
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.header__container,
+.navigation__container,
+.home-section__container,
+.footer__container {
+    max-width: 1117px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 25px 15px;
+}
+
+/* Header */
+.header__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accont_cabinet {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accont_cabinet__item {
+    padding: 0 15px;
+}
+
+.accont_cabinet__link {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background: #B3CA22;
+    border-radius: 5px;
+}
+
+.navigation {
+    background: #b4ca2234;
+    font: 20px/24px'Balsamiq Sans';
+}
+
+.navigation__container {
+    padding: 15px;
+}
+
+.navigation__container {
+    display: flex;
+    justify-content: center;
+    gap: 40px
+}
+
+.navigation__container .navigation__link {
+    color: #8ea110;
+    padding: 0 5px;
+}
+
+/* Main */
+.home-section__title {
+    font: bold 36px/42px'Balsamiq Sans';
+    text-align: center;
+    padding: 0 85px;
+    color: #B3CA22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 25px;
+}
+
+.home-section__title:after,
+.home-section__title:before {
+    content: "";
+    margin: 0 15px;
+    display: block;
+    background: #B3CA22;
+    height: 1px;
+    width: 70px;
+}
+
+.last-posts-section__list {
+    display: flex;
+    gap: 10%
+}
+
+.footer {
+    text-align: center;
+    background: #b4ca226b;
+    color: #333;
+}
