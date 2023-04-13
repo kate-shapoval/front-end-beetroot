@@ -1,0 +1,150 @@
+/* Reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* End Reset css */
+
+/* Variable */
+:root {
+    /* fonts */
+    --maint-fonts: 'Open Sans', sans-serif;
+    --maint-font-size: 18px;
+    --main-font-line-height: 25px;
+
+    /* colors */
+    --color-grey: #828282;
+    --color-black: #070707;
+    --bg-gray: #f6f6f6;
+}
+
+/* End Variable */
+
+/* Global style */
+body {
+    font: var(--maint-font-size)/var(--main-font-line-height) var(--maint-fonts);
+}
+
+.container {
+    max-width: 970px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+main section:nth-child(2n) {
+    background: var(--bg-gray);
+}
+
+.home .container {
+    text-align: center;
+
+    padding: 100px 16px 70px;
+}
+
+.home .title {
+    font-family: 700 34px/46px var(--maint-fonts);
+    margin: 0 0 50px;
+}
+
+main section:nth-child(2n+1) .title {
+    margin: 0 0 20px;
+}
+
+main section .title+p {
+    margin: 0 0 50px;
+}
+
+ul,
+p {
+    margin: 0 0 30px;
+}
+
+
+/* End Global style */
+
+/* Header */
+.header__menu {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    border-bottom: 1px solid var(--color-grey);
+
+    padding: 28px 0;
+}
+
+.header__link {
+    color: var(--color-grey);
+}
+
+.header__link:hover {
+    color: var(--color-black);
+}
+
+/* End Header */
+
+/* Hero section */
+.hero-section .container {
+    padding: 12px 0 0;
+}
+
+.hero-section__title {
+    font: 700 48px/65px var(--maint-fonts);
+    margin: 0 0 50px;
+    text-align: left;
+}
+
+/* End Hero section */
+
+.skills-section__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 97px;
+}
+
+.skills-section__item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.skills-section__item img {
+    max-width: fit-content;
+    margin: 0 auto 25px;
+}
+
+.skills-section__item-title {
+    font: 700 14px/19px var(--maint-fonts);
+    margin: 0 0 60px;
+    color: var(--color-grey);
+}
+
+.skills-section__item-rating {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+.portfolio-section__item {
+    margin: 0 0 40px;
+}
+
+.portfolio-section__item img {
+    margin: 0 0 40px;
+}
