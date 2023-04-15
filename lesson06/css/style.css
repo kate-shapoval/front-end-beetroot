@@ -11,11 +11,19 @@ ul {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 img {
     display: block;
     width: 100%;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 /* End Reset css */
@@ -61,10 +69,12 @@ main section:nth-child(2n) {
     margin: 0 0 50px;
 }
 
+footer.contact-section .title,
 main section:nth-child(2n+1) .title {
     margin: 0 0 20px;
 }
 
+footer .title+p,
 main section .title+p {
     margin: 0 0 50px;
 }
@@ -111,6 +121,8 @@ p {
 
 /* End Hero section */
 
+/* Skills section */
+
 .skills-section__list {
     display: flex;
     justify-content: space-between;
@@ -141,6 +153,10 @@ p {
 }
 
 
+/* End Skills */
+
+/* Portfolio section */
+
 .portfolio-section__item {
     margin: 0 0 40px;
 }
@@ -148,3 +164,50 @@ p {
 .portfolio-section__item img {
     margin: 0 0 40px;
 }
+
+/* End Portfolio */
+
+/* Footer Contact section */
+.contact-section__sent-message {
+    background: var(--color-black);
+    border-radius: 22px;
+
+    font: 700 var(--maint-font-size)/var(--main-font-line-height) var(--maint-fonts);
+    color: #fff;
+
+    padding: 10px 16px;
+    margin: 0 0 30px;
+}
+
+.contact-section__list-socials {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    margin: 0 0 60px;
+}
+
+.skills-section__list-socials--item-link {
+    display: block;
+    cursor: pointer;
+}
+
+.contact-section__sent-message:hover,
+.skills-section__list-socials--item-link:hover {
+    opacity: .5;
+}
+
+.contact-section__links-socials {
+    font: 14px/18px var(--maint-fonts);
+    color: var(--color-grey);
+}
+
+.contact-section__links-socials a {
+    color: var(--color-grey);
+}
+
+.contact-section__links-socials a:hover {
+    color: var(--color-black);
+}
+
+/* End Footer Contact section */
