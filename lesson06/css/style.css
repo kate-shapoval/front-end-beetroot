@@ -64,6 +64,10 @@ main section:nth-child(2n) {
     padding: 100px 16px 70px;
 }
 
+.home .header .container {
+    padding: 0 16px;
+}
+
 .home .title {
     font-family: 700 34px/46px var(--maint-fonts);
     margin: 0 0 50px;
@@ -96,6 +100,7 @@ p {
     border-bottom: 1px solid var(--color-grey);
 
     padding: 28px 0;
+    margin: 0;
 }
 
 .header__link {
