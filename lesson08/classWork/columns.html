@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Columns</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #C4C4C4;
+            padding: 60px 0 80px;
+        }
+
+        .wrapper {
+            max-width: 1162px;
+            margin: 0 auto;
+        }
+
+        .block-black,
+        .block-red {
+            min-height: 165px;
+            padding: 54px 50px;
+            margin: 0 0 59px;
+            background: #DC3F3F;
+        }
+
+        .block-black {
+            margin: 0 0 30px;
+            background: #412A2A;
+        }
+
+        .block-black:last-child {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="block-red"></div>
+        <div class="block-red">
+            <div class="block-black"></div>
+            <div class="block-black"></div>
+        </div>
+</body>
+
+</html>
