@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+:root {
+    --main-font-family: 'Montserrat', sans-serif;
+    --main-font-size: 16px;
+    --main-line-height: 26px;
+
+    font: var(--main-font-size)/var(--main-line-height) var(--main-font-family);
+
+    --color-white: #fff;
+    --color-orange: #FF9900;
+    --color-black: #2F281E;
+    --color-blue: #BCD0E5;
+}
+
+a {
+    color: var(--color-black);
+}
+
+a:hover {
+    color: var(--color-orange);
+}
+
+button {
+    background: var(--color-orange);
+
+    font-weight: 600;
+    color: var(--color-white);
+
+    border-radius: 4px;
+    padding: 13px 25px;
+
+}
+
+.wrapper {
+    max-width: 1230px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 17px 15px;
+}
+
+.header {
+    margin: 0 0 87px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    display: block;
+    background: url(../images/logo-productly.png) no-repeat;
+    width: 155px;
+    height: 30px;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.logo a {
+    display: block;
+    height: 100%;
+}
+
+.header__navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header__links-account {
+    display: flex;
+    gap: 32px;
+}
+
+.button-sing-in {
+    background: var(--color-white);
+    border: 1px solid var(--color-blue);
+
+    color: var(--color-black);
+}
