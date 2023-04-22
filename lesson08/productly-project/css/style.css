@@ -69,16 +69,17 @@ button:hover {
 }
 
 .wrapper {
-    max-width: 1230px;
+    max-width: 1440px;
     margin: 0 auto;
     overflow: hidden;
-    padding: 17px 15px;
+    padding: 17px 0;
 }
 
 .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 105px;
 }
 
 .header {
