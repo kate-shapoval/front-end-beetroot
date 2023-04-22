@@ -144,8 +144,20 @@ section .container {
     flex-direction: column;
 }
 
-.features {
+.first-screen .container {
+    flex-direction: row;
+}
 
+.first-screen h1 {
+    font: 700 44px/54px var(--main-font-family);
+    margin: 0 0 30px;
+}
+
+.first-screen p {
+    margin: 0 0 33px;
+}
+
+.features {
     background: url(../images/bg-features.jpg) no-repeat center bottom;
     padding: 0 0 200px;
 }
