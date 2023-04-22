@@ -140,7 +140,12 @@ main section {
     margin: 0 0 100px;
 }
 
+section .container {
+    flex-direction: column;
+}
+
 .features {
+
     background: url(../images/bg-features.jpg) no-repeat center bottom;
     padding: 0 0 200px;
 }
