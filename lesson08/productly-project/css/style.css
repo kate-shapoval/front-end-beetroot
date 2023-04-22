@@ -131,8 +131,72 @@ button:hover {
     color: var(--color-white);
 }
 
+/* Main */
+main {
+    padding: 100px 0;
+}
+
+main section {
+    margin: 0 0 100px;
+}
+
+.features {
+    background: url(../images/bg-features.jpg) no-repeat center bottom;
+    padding: 0 0 200px;
+}
+
+.features .btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.features__title {
+    font: 700 36px/44px var(--main-font-family);
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+.features__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 0 0 70px;
+}
+
+.features__picture {
+    background: #7752BE;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 30px;
+}
+
+.design .features__picture {
+    background: #FAB005;
+}
+
+.test .features__picture {
+    background: #F03E3D;
+}
+
+.tests .features__picture {
+    background: #4DADF7;
+
+    ;
+}
+
+.features h3 {
+    font: 600 22px/27px var(--main-font-family);
+    margin: 0 0 16px;
+}
+
 /* Footer */
 .footer .container {
+    border-top: 1px solid var(--color-blue);
+    padding-top: 70px;
     align-items: flex-start;
     gap: 100px;
 }
