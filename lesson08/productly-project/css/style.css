@@ -25,12 +25,22 @@ ul {
     --main-font-size: 16px;
     --main-line-height: 26px;
 
-    font: var(--main-font-size)/var(--main-line-height) var(--main-font-family);
+    --main-font: 16px/26px var(--main-font-family);
+    --btn-fonts: 600 16px/20px var(--main-font-family);
+    --link-fonts: 400 15px/20px var(--main-font-family);
+    --footer-title-fonts: 700 20px/30px var(--main-font-family);
 
     --color-white: #fff;
     --color-orange: #FF9900;
     --color-black: #2F281E;
     --color-blue: #BCD0E5;
+
+    /* spasing */
+    --r-4: 4px;
+}
+
+body {
+    font: var(--main-font);
 }
 
 a {
@@ -43,6 +53,7 @@ a:hover {
 
 button {
     background: var(--color-orange);
+    border: 1px solid var(--color-orange);
 
     font-weight: 600;
     color: var(--color-white);
@@ -52,6 +63,11 @@ button {
 
 }
 
+button:hover {
+    transition: all 3ms;
+    opacity: .8;
+}
+
 .wrapper {
     max-width: 1230px;
     margin: 0 auto;
@@ -59,20 +75,28 @@ button {
     padding: 17px 15px;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .header {
     margin: 0 0 87px;
 }
 
+/*
 .header .container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-}
+}*/
 
 .logo {
     display: block;
-    background: url(../images/logo-productly.png) no-repeat;
-    width: 155px;
-    height: 30px;
+    background: url(../images/Logo.svg) no-repeat;
+    width: 200px;
+    height: 32px;
     text-indent: -9999px;
     overflow: hidden;
 }
@@ -82,7 +106,7 @@ button {
     height: 100%;
 }
 
-.header__navigation ul {
+.header__nav ul {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -98,4 +122,49 @@ button {
     border: 1px solid var(--color-blue);
 
     color: var(--color-black);
+}
+
+.button-sing-in:hover {
+    background: var(--color-orange);
+    border: 1px solid var(--color-orange);
+
+    color: var(--color-white);
+}
+
+/* Footer */
+.footer .container {
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.footer__column-title {
+    font: var(--footer-title-fonts);
+    margin: 0 0 30px;
+}
+
+.footer__column {
+    width: calc((100%-300px)/5);
+}
+
+.footer__column:last-child {
+    width: calc((100%-300px)/5*2);
+}
+
+.footer__list-item {
+    margin: 0 0 15px;
+}
+
+.footer__form-sing-up .field {
+    border: 1px solid var(--color-blue);
+    border-radius: var(--r-4);
+    background: var(--color-white);
+    margin: 0 0 25px;
+}
+
+.footer__form-sing-up .field input {
+    border: none;
+    background: none;
+    padding: 15px 10px;
+    color: var(--color-blue);
+    outline: none;
 }
