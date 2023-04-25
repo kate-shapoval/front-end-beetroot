@@ -27,7 +27,7 @@
                     </ul>
                 </nav>
                 <ul class="header__links-account">
-                    <li><button class="button button-sing-in">Sing In</button></li>
+                    <li><button id="singIn" class="button button-sing-in">Sing In</button></li>
                     <li><button class="button">Sing Up</button></li>
                 </ul>
             </div>
@@ -35,15 +35,16 @@
         <main>
             <section class="first-screen">
                 <div class="container">
-                    <div class="description">
-                        <h1>The Design Thinking superpowers</h1>
-                        <p>Tools, tutorials, design and innovation experts, all in one place! The most intuitive way to
-                            imagine
-                            your next user experience.</p>
-                        <button>Get started</button>
-                    </div>
-                    <img src="./images/img-first-screen.jpg" width="644" height="495" alt="first-screen">
+                    <h1 class="first-screen__title">The Design Thinking superpowers</h1>
+                    <img class="first-screen__image" src="./images/img-first-screen.jpg" width="644" height="495"
+                        alt="first-screen">
+                    <p class="first-screen__text">Tools, tutorials, design and innovation experts, all in one place! The
+                        most intuitive way to
+                        imagine
+                        your next user experience.</p>
+                    <button>Get started</button>
                 </div>
+
             </section>
             <section class="features">
                 <div class="container">
@@ -58,7 +59,7 @@
                                         fill="white" />
                                 </svg>
                             </div>
-                            <h3>First click tests</h3>
+                            <h3>Preference tests</h3>
                             <p>While most people enjoy casino gambling,</p>
                         </li>
                         <li class="features__list-item design">
@@ -85,8 +86,8 @@
 
 
                             </div>
-                            <h3>Design surveys</h3>
-                            <p>Sports betting, lottery and bingo playing for the fun</p>
+                            <h3>Preference tests</h3>
+                            <p>The Myspace page defines the individual.</p>
                         </li>
                         <li class="features__list-item tests">
                             <div class="features__picture">
@@ -99,13 +100,22 @@
 
 
                             </div>
-                            <h3>Design surveys</h3>
-                            <p>Sports betting, lottery and bingo playing for the fun</p>
+                            <h3>Five second tests</h3>
+                            <p>Personal choices and the overall personality of the person. </p>
                         </li>
                     </ul>
                     <div class="btn-container">
                         <button class="button">Sign up Now</button>
                     </div>
+                </div>
+            </section>
+            <section class="benefits">
+                <div class="conteiner">
+                    <ul class="benefits__list">
+                        <li class="benefits__list-item">
+                            <h3 class="benefits__list-title">Design Professionals</h3>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </main>
@@ -144,8 +154,32 @@
                 </div>
             </div>
         </footer>
-    </div>
 
+        <div class="modal">
+            <form action="#" class="form-login form">
+                <div class="form-login__close">X</div>
+                <h2>Login</h2>
+                <div class="field">
+                    <input type="text" placeholder="Login">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="Password">
+                </div>
+                <button class="button">Sign up Now</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let btn = document.getElementById("singIn")
+        let modal = document.querySelector(".modal")
+        let btnClose = document.querySelector(".modal")
+        btn.onclick = () => {
+            modal.classList.add("modal--visible");
+        }
+        btnClose.onclick = () => {
+            modal.classList.remove("modal--visible");
+        }
+    </script>
 </body>
 
 </html>

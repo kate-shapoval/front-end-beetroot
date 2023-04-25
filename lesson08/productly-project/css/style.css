@@ -34,6 +34,7 @@ ul {
     --color-orange: #FF9900;
     --color-black: #2F281E;
     --color-blue: #BCD0E5;
+    --bg-modal: rgba(0, 0, 0, .75);
 
     /* spasing */
     --r-4: 4px;
@@ -146,21 +147,34 @@ section .container {
 }
 
 .first-screen .container {
-    flex-direction: row;
+    position: relative;
+    align-items: flex-start;
+    padding: 167px 0 196px;
 }
 
-.first-screen h1 {
+.first-screen__title {
+    max-width: 500px;
     font: 700 44px/54px var(--main-font-family);
     margin: 0 0 30px;
 }
 
-.first-screen p {
+.first-screen__text {
+    max-width: 500px;
     margin: 0 0 33px;
+}
+
+.first-screen__image {
+    max-width: 644px;
+    position: absolute;
+    width: 53%;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
 }
 
 .features {
     background: url(../images/bg-features.jpg) no-repeat center bottom;
-    padding: 0 0 200px;
+    padding: 0 0 100px;
 }
 
 .features .btn-container {
@@ -236,17 +250,75 @@ section .container {
     margin: 0 0 15px;
 }
 
-.footer__form-sing-up .field {
+.form h2 {
+    font: 700 36px/44px var(--main-font-family);
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+.form .field {
     border: 1px solid var(--color-blue);
     border-radius: var(--r-4);
     background: var(--color-white);
     margin: 0 0 25px;
 }
 
-.footer__form-sing-up .field input {
+.form .field input {
     border: none;
     background: none;
     padding: 15px 10px;
     color: var(--color-blue);
     outline: none;
+}
+
+.modal {
+    background: var(--bg-modal);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 8ms;
+}
+
+.modal--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.form-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background: var(--color-white);
+    border: 1px solid var(--color-blue);
+    border-radius: 15px;
+    width: fit-content;
+    padding: 30px;
+    position: relative;
+
+    transform: translateY(0) scale(0);
+    opacity: 0;
+    transition: all 8ms;
+}
+
+.modal--visible .form-login {
+    transform: translateY(200px) scale(1);
+    opacity: 1;
+}
+
+.form-login__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
 }
