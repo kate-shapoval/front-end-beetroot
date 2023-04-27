@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Farro&family=PT+Sans&family=Staatliches&display=swap"
+        rel="stylesheet">
     <title>Document</title>
 
     <link rel="stylesheet" href="./css/style.css">
@@ -26,16 +27,19 @@
                             d="M188.953 26.9999L208.497 -6.10352e-05L208.495 53.9999L188.953 26.9999Z" fill="#1A1A1A" />
                     </svg>
                 </a>
-                <nav class="nav">
-                    <ul class="nav__container">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Who's using</a></li>
-                    </ul>
-                </nav>
-                <div class="block-laguage">eng</div>
+                <div class="holder">
+                    <nav class="nav">
+                        <ul class="nav__container">
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="./pages/who-using.html">Who's using</a></li>
+                        </ul>
+                    </nav>
+                    <div class="block-laguage">eng</div>
+                </div>
             </div>
         </header>
         <main class="main">
+            <div class="container-bg"><img src="./images/bg-picture.png" alt="bg"></div>
             <div class="container">
                 <aside class="aside">
                     <ul class="list-titles">
@@ -45,15 +49,19 @@
                         <li class="list-titles__item"><a href="#title4">handling text input</a></li>
                     </ul>
                 </aside>
-                <div class="content">
-                    <div class="block-text">
-                        <h2 id="title1" class="content__title">Introduction</h2>
+                <div class="main__content">
+                    <section class="block-text">
+                        <h2 id="title1" class="content__title">Introduction <span class="content__title-chapter">Chapter
+                                1</span></h2>
                         <p class="text">Welcome to the very start of your React Native journey! If you're looking for
-                            environment setup instructions, they've moved to their own section. Continue reading for an
+                            environment setup instructions, they've moved to <u>their own section</u>. Continue reading
+                            for an
                             introduction to the documentation, Native Components, React, and more!</p>
-                    </div>
-                    <div class="block-text">
-                        <h2 id="title2" class="content__title">core components</h2>
+                    </section>
+                    <section class="block-text">
+                        <h2 id="title2" class="content__title">core components<span
+                                class="content__title-chapter">Chapter 2</span>
+                        </h2>
                         <p class="text">React Native is an open source framework for building Android and iOS
                             applications
                             using
@@ -65,17 +73,38 @@
                             next
                             section.
                             But first, let’s cover how components work in React Native.</p>
-                    </div>
-                    <div class="block-text">
-                        <h2 id="title3" class="content__title">react fundamentals</h2>
-                        <p class="text">React Native runs on React, a popular open source library for building user
+                    </section>
+                    <section class="block-text">
+                        <h2 id="title3" class="content__title">react fundamentals<span
+                                class="content__title-chapter">Chapter 3</span></h2>
+                        <p class="text">React Native runs on <u>React</u>, a popular open source library for building
+                            user
                             interfaces
                             with JavaScript. To make the most of React Native, it helps to understand React itself. This
                             section
                             can get you started or can serve as a refresher course.</p>
-                    </div>
-                    <div class="block-text">
-                        <h2 id="title4" class="content__title">handling text input</h2>
+                        <p class="text">We’re going to cover the core concepts behind React:</p>
+                        <p class="text"><b>+ components.</b> The rest of this introduction to React uses cats in its
+                            examples: friendly, approachable creatures that need names and a cafe to work in.</p>
+                        <p class="text"><b>+ JSX.</b> React and React Native use JSX, a syntax that lets you write
+                            elements inside JavaScript like so: <br>
+                            <span class="mark">&#60;Text&#62;Hello, I am your cat!&#60;&#47;Text&#62;.</span>
+                        </p>
+                        <p class="text">The React docs have <u>a comprehensive guide to JSX</u> you can refer to learn
+                            even
+                            more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a
+                            <span class="mark">name</span> for the cat, name, and embedding it with curly braces inside
+                            <span class="mark">&lt;Text&gt;</span>
+                        </p>
+                        <p class="text"><b>+ props.</b> Props is short for “properties”. </p>
+                        <p class="text"><b>+ state.</b> While you can think of props as arguments you use to configure
+                            how components render, state is like a component’s personal data storage. State is useful
+                            for handling data that changes over time or that comes from user interaction. State gives
+                            your components memory!</p>
+                    </section>
+                    <section class="block-text">
+                        <h2 id="title4" class="content__title">handling text input<span
+                                class="content__title-chapter">Chapter 4</span></h2>
                         <p class="text">TextInput is a Core Component that allows the user to enter text. It has an
                             <i>onChangeText</i>
                             prop that takes a function to be called every time the text changed, and an onSubmitEditing
@@ -84,10 +113,10 @@
                         </p>
                         <p class="text">For example, let's say that as the user types, you're translating their words
                             into a
-                            different language. In this new language, every single word is written the same way: 🍕. So
+                            different language. In this new language, every single word is written the same way: . So
                             the
                             sentence "Hello there Bob" would be translated as "".</p>
-                    </div>
+                    </section>
                 </div>
             </div>
         </main>
