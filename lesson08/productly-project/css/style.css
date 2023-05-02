@@ -225,6 +225,52 @@ section .container {
     margin: 0 0 16px;
 }
 
+.benefits {}
+
+.benefits__list .benefits__list-item {
+    min-width: 500px;
+    padding: 0 675px 0 0;
+    position: relative;
+}
+
+.design__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.benefits__list .benefits__list-item:nth-child(2n) {
+    padding: 0 0 0 675px;
+}
+
+.benefits__list .benefits__list-item:nth-child(2n) img {
+    right: auto;
+    left: 0;
+}
+
+.benefits__list-title {
+    font: 700 36px/26px var(--main-font-family);
+    margin: 0 0 20px;
+}
+
+.benefits p {
+    margin: 0 0 40px;
+}
+
+.design__title {
+    font: 700 16px/26px var(--main-font-family);
+    margin: 0 0 10px;
+}
+
+.design__item {
+    margin: 0 0 30px;
+}
+
+.design__item p {
+    margin: 0;
+}
+
 /* Footer */
 .footer .container {
     border-top: 1px solid var(--color-blue);
