@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link rel="stylesheet" href="@@webRoot/bundle.min.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <header class="header">
+            <div class="container header__row">
+                <a class="header__logo" href="/">
+                    <img class="logo" src="./img/Logo.svg" alt="logo">
+                </a>
+                <!-- nav -->
+                <nav class="header__nav">
+                    <div class="header__gamb">
+                        <div class="header__gamb-line header__gamb-line--top"></div>
+                        <div class="header__gamb-line header__gamb-line--middle"></div>
+                        <div class="header__gamb-line header__gamb-line--bottom"></div>
+                    </div>
+                    <ul class="header__nav-container">
+                        <li class="header__nav-item">
+                            <a class="link" href="javascript:void(0);">Product <span class="link--arrow">▲</span> </a>
+                            <ul class="header__drop-down">
+                                <li><a class="link" href="/">test1 </a></li>
+                                <li><a class="link" href="/">test2 </a></li>
+                                <li><a class="link" href="/">test3 </a></li>
+                                <li><a class="link" href="/">test4 </a></li>
+                                <li><a class="link" href="/">test1 </a></li>
+                                <li><a class="link" href="/">test1 </a></li>
+                            </ul>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="link" href="/">Customers</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="link" href="/">Pricing</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="link" href="/">Resources</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- nav end -->
+                <div class="header__btn-container">
+                    <button id="btnLogin" class="btn btn--line">Sign In</button>
+                    <button class="btn">Sign Up</button>
+                </div>
+            </div>
+        </header>
+        <!-- header end -->
+        <!-- hero -->
+        <section class="hero">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="title hero__title">The Design Thinking superpowers</h1>
+                    <img class="hero__img" src="./img/main-img.png" alt="img" width="200">
+                    <p class="text hero__text">Tools, tutorials, design and innovation experts, all in one place! The
+                        most intuitive way to imagine your next user experience.</p>
+                    <button class="btn">Get started</button>
+                </div>
+
+            </div>
+        </section>
+        <!-- hero end -->
+
+        <!-- product  -->
+        <section class="product">
+            <div class="container product__container">
+
+                <h2 class="h2 product__title">
+                    We design tools to unveil your superpowers
+                </h2>
+
+                <div class="product__row">
+                    <div class="product__item">
+                        <img class="product__icon" src="./img/icon.png" alt="icon" width="40">
+                        <h3 class="h3 product__item-title">First click tests</h3>
+                        <p class="simple-text">While most people enjoy casino gambling,</p>
+                    </div>
+                    <div class="product__item">
+                        <img class="product__icon" src="./img/icon.png" alt="icon" width="40">
+                        <h3 class="h3 product__item-title">First click tests</h3>
+                        <p class="simple-text">While most people enjoy casino gambling,</p>
+                    </div>
+                    <div class="product__item">
+                        <img class="product__icon" src="./img/icon.png" alt="icon" width="40">
+                        <h3 class="h3 product__item-title">First click tests</h3>
+                        <p class="simple-text">While most people enjoy casino gambling,</p>
+                    </div>
+                    <div class="product__item">
+                        <img class="product__icon" src="./img/icon.png" alt="icon" width="40">
+                        <h3 class="h3 product__item-title">First click tests</h3>
+                        <p class="simple-text">While most people enjoy casino gambling,</p>
+                    </div>
+                </div>
+
+                <button class="btn">Sign up Now</button>
+            </div>
+        </section>
+        <!-- product end -->
+
+        <section>
+
+        </section>
+
+
+
+        <div class="modal">
+            <div class="form-login">
+                <div class="form-login__close">X</div>
+                <h2>Login</h2>
+                <input class="inp" type="text" placeholder="Name">
+                <input class="inp" type="password">
+                <button class="btn">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script> var exports = {}; </script>
+    <script src="@@webRoot/js/index.js"></script>
+    <script>
+
+        let menuButton = document.querySelector('.header__gamb')
+
+        menuButton.onclick = () => {
+            document.querySelector('.header__nav').classList.toggle('active')
+        }
+
+
+
+
+        document.querySelector('#btnLogin').onclick = () => {
+            document.querySelector('.modal').classList.add('visible')
+        }
+        document.querySelector('.form-login__close').onclick = () => {
+            document.querySelector('.modal').classList.remove('visible')
+        }
+    </script>
+</body>
+
+</html>

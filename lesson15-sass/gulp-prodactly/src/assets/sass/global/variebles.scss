@@ -1,0 +1,39 @@
+/* fonts */
+$main-fonts: 'Montserrat',
+    sans-serif;
+
+/* Colors */
+$color-black: #2F281E;
+$color-orange: #FF9900;
+$color-white: #fff;
+$color-bg-modal: #2f281eaa;
+$color-border: #BCD0E5;
+$color-simpl-text: #544837;
+$color-btn-hover: #d28005;
+
+/* font-weight: 600; font-size: 16px;/line-height: 20px; font-family:*/
+$title-fonts: 700 44px/54px $main-fonts;
+$sub-title-fonts: 700 36px/44px $main-fonts;
+$h3-fonts: 600 22px/44px $main-fonts;
+$simple-text-fonts: 500 16px/26px $main-fonts;
+$hero-text-fonts: 400 18px/28px $main-fonts;
+$text-fonts: 500 16px/26px $main-fonts;
+$btn-fonts: 600 16px/20px $main-fonts;
+$link-fonts: 400 15px/20px $main-fonts;
+
+/* spasing */
+$r-4: 4px;
+$header-top: 80px;
+
+
+
+@media (max-width: 992px) {
+    $title-fonts: 700 34px/44px $main-fonts;
+    $link-fonts: 700 20px/20px $main-fonts;
+}
+
+@media (max-width: 767px) {
+    $title-fonts: 700 29px/44px $main-fonts;
+    $sub-title-fonts: 700 25px/39px $main-fonts;
+
+}

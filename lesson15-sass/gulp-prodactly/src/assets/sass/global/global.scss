@@ -1,0 +1,108 @@
+body {
+    color: $color-black;
+    font: $text-fonts;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+.fix-body {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.logo {
+    width: 120px;
+}
+
+.title {
+    font: $title-fonts;
+}
+
+.h2 {
+    font: $sub-title-fonts;
+}
+
+.h3 {
+    font: $h3-fonts;
+}
+
+.simple-text {
+    font: $color-simpl-text;
+}
+
+
+.inp {
+    display: block;
+    border: 1px solid $color-border;
+    padding: 10px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.link {
+    font: $link-fonts;
+    color: $color-black;
+    display: flex;
+    gap: 4px;
+    transition: transform 0.6s;
+
+    &:hover {
+        color: $color-orange;
+    }
+
+    &:hover .link--arrow {
+        transform: scaleY(1);
+    }
+}
+
+.link--arrow {
+    transform: scaleY(-1);
+    width: 15px;
+    height: 20px;
+    display: block;
+    transition: transform 0.6s;
+}
+
+.btn {
+    font: $btn-fonts;
+    color: $color-white;
+    background-color: $color-orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: $r-4;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $color-btn-hover;
+    }
+}
+
+.btn--line {
+    color: $color-black;
+    background-color: transparent;
+    border: 1px solid $color-border;
+
+    &:hover {
+        color: $color-white;
+        background-color: $color-orange;
+        border: 1px solid transparent;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
