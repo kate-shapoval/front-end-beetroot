@@ -1,0 +1,11 @@
+/node_modules/*
+/dist/*
+
+.DS_Store
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/gulp-project.iml
+/.idea/*
+/package-lock.json
+/inn.txt
+/yarn.lock
