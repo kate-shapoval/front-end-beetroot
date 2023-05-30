@@ -738,13 +738,12 @@
                     </ul>
                 </div>
                 <div class="footer__column">
-                    <h4 class="footer__column-title">Knowing you're always on the best energy deal.
-                    </h4>
+                    <h4 class="footer__column-title">Would you like to join newsletters?</h4>
                     <form action="#" class="footer__form-sing-up">
                         <div class="field">
-                            <input type="text" placeholder="Enter your phone Number">
+                            <input type="text" placeholder="enter your email address...">
                         </div>
-                        <button class="btn">Sign up Now</button>
+                        <button class="btn">Join</button>
                     </form>
                 </div>
             </div>
@@ -756,7 +755,7 @@
                 <div class="form-login__close">X</div>
                 <h2>Login</h2>
                 <input class="inp" type="text" placeholder="Name">
-                <input class="inp" type="password">
+                <input class="inp" type="password" placeholder="Password">
                 <button class="btn">Login</button>
             </div>
         </div>
@@ -767,11 +766,14 @@
     <script>
 
         let menuButton = document.querySelector('.header__gamb')
-        let filterButton = document.querySelector('.header__filter-mobile')
+
 
         menuButton.onclick = () => {
+            menuButton.classList.toggle('active')
             document.querySelector('.header__nav').classList.toggle('active')
         }
+
+        let filterButton = document.querySelector('.header__filter-mobile')
 
         filterButton.onclick = () => {
             document.querySelector('.filter').classList.toggle('active')
