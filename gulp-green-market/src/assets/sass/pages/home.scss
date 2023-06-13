@@ -257,6 +257,7 @@
             background: $color-white;
             cursor: pointer;
 
+            &:hover,
             &--active {
                 font-weight: bold;
                 background: $color-green;

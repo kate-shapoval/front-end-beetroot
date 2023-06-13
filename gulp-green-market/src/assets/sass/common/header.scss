@@ -147,6 +147,12 @@
         }
     }
 
+    .header__logo {
+        svg {
+            width: 90%;
+        }
+    }
+
     .header__btn-container {
         gap: 10px;
         padding: 0 22px 0 0;
