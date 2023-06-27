@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Lesson2</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font: 400 16px/20px Arial, Helvetica, sans-serif;
+        color: #333;
+    }
+
+    .wrapper {
+        max-width: 1003px;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 30px 0 0;
+    }
+
+    .tasks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 30px;
+    }
+
+    h1 {
+        font: 700 36px/42px Arial, Helvetica, sans-serif;
+        margin: 0 0 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font: 700 26px/32px Arial, Helvetica, sans-serif;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+
+    p {
+        margin: 0 0 15px;
+    }
+
+    .field-inp {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .5);
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 0 0 15px;
+    }
+
+    .field-inp input {
+        background: none;
+        font: 400 16px/20px Arial, Helvetica, sans-serif;
+        color: #333;
+        height: 20px;
+        width: 100%;
+        border: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+    }
+
+    .field-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        display: block;
+        cursor: pointer;
+        border: none;
+        background: #55acfd;
+        border-radius: 5px;
+        color: #fff;
+        padding: 10px;
+        margin: 0 0 15px;
+    }
+
+    .out {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .5);
+        border-radius: 5px;
+        padding: 5px 10px;
+
+        min-height: 30px;
+        padding: 5px 10px;
+    }
+
+    .box {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .3);
+        padding: 20px;
+        border-radius: 10px;
+
+    }
+</style>
+<div>
+    <div class="wrapper">
+        <h1>Lesson2. Типи даних та оператори</h1>
+        <div class="tasks">
+            <div class="box box-task1">
+                <h2>Min Task 01</h2>
+                <p>Виконай додавання 0,1 і 0,2 добийся математично правильної відповіді.</p>
+                <div class="field-btn">
+                    <button class="btn1">Виконай</button>
+                </div>
+                <div class="out out1"></div>
+            </div>
+            <div class="box box-task2">
+                <h2>Min Task 02</h2>
+                <p>Виконай додавання рядка "1" і цифри 2 (обидві операнди повинні бути в змінних), добийся математично
+                    правильної відповіді.</p>
+                <div class="field-btn">
+                    <button class="btn2">Виконай</button>
+                </div>
+                <div class="out out2"></div>
+            </div>
+            <div class="box box-task3">
+                <h2>Min Task 03</h2>
+                <p>Користувач вказує обсяг флешки в Гб. Програма повинна порахувати скільки файлів розміром в 820 Мб
+                    поміщається на флешку.</p>
+                <div class="field-inp">
+                    <input class="inp3" type="number" placeholder="Обсяг флешки в Гб">
+                </div>
+                <div class="field-btn">
+                    <button class="btn3">Обчислити кількість файлів</button>
+                </div>
+                <div class="out out3"></div>
+            </div>
+            <div class="box box-task4">
+                <h2>Normal Task 01</h2>
+                <p>Користувач вводить суму грошей в гаманці і ціну однієї шоколадки. Програма виводить скільки шоколадок
+                    може купити користувач і скільки здачі у нього залишиться.</p>
+                <div class="field-inp">
+                    <input class="inp4-1" type="number" placeholder="Cумa грошей в гаманці ">
+                </div>
+                <div class="field-inp">
+                    <input class="inp4-2" type="number" placeholder="Ціна однієї шоколадки">
+                </div>
+                <div class="field-btn">
+                    <button class="btn4">Обчислити кількість шоколадок</button>
+                </div>
+                <div class="out out4"></div>
+            </div>
+            <div class="box box-task5">
+                <h2>Normal Task 02</h2>
+                <p>Запитай у користувача тризначне число і виведи його задом наперед. Для вирішення завдання тобі
+                    знадобиться оператор % (залишок від ділення).</p>
+                <p>Можна вводити будь-яке число</p>
+                <div class="field-inp">
+                    <input class="inp5" type="number" placeholder="Число">
+                </div>
+                <div class="field-btn">
+                    <button class="btn5">Виведи число задом наперед</button>
+                </div>
+                <div class="out out5"></div>
+            </div>
+            <div class="box box-task6">
+                <h2>Max Task 02</h2>
+                <p>Що повернуть вирази:</p>
+                <p>2 && 0 && 3</p>
+                <p>2 || 0 || 3</p>
+                <p>2 && 0 || 3</p>
+                <div class="field-btn">
+                    <button class="btn6">Rezult</button>
+                </div>
+                <div class="out out6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+    </body>
+
+</html>

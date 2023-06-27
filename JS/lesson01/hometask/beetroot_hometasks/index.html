@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Lesson1</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font: 400 16px/20px Arial, Helvetica, sans-serif;
+        color: #333;
+    }
+
+    .wrapper {
+        max-width: 1003px;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 30px 0 0;
+    }
+
+    .tasks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 30px;
+    }
+
+    h1 {
+        font: 700 36px/42px Arial, Helvetica, sans-serif;
+        margin: 0 0 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font: 700 26px/32px Arial, Helvetica, sans-serif;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+
+    p {
+        margin: 0 0 15px;
+    }
+
+    .field-inp {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .5);
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 0 0 15px;
+    }
+
+    .field-inp input {
+        background: none;
+        font: 400 16px/20px Arial, Helvetica, sans-serif;
+        color: #333;
+        height: 20px;
+        width: 100%;
+        border: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+    }
+
+    .field-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        display: block;
+        cursor: pointer;
+        border: none;
+        background: #55acfd;
+        border-radius: 5px;
+        color: #fff;
+        padding: 10px;
+        margin: 0 0 15px;
+    }
+
+    .out {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .5);
+        border-radius: 5px;
+        padding: 5px 10px;
+
+        min-height: 30px;
+        padding: 5px 10px;
+    }
+
+    .box {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .3);
+        padding: 20px;
+        border-radius: 10px;
+
+    }
+</style>
+<div>
+    <div class="wrapper">
+        <h1>Lesson1. Основи JavaScript</h1>
+        <div class="tasks">
+            <div class="box box-task1">
+                <h2>Normal Task 01</h2>
+                <p>Запитай ім’я користувача та виведи у відповідь “Привіт, *ім’я*”;</p>
+                <div class="field-inp">
+                    <input class="inp1" type="text" placeholder="Name">
+                </div>
+                <div class="field-btn">
+                    <button class="btn1">Login</button>
+                </div>
+                <div class="out out1"></div>
+            </div>
+            <div class="box box-task2">
+                <h2>Normal Task 02</h2>
+                <p>Запитай рік народження користувача, порахуй його/її вік і виведи результат. Поточний рік вкажи в коді
+                    як
+                    константу;</p>
+                <div class="field-inp">
+                    <input class="inp2" type="number" placeholder="Birthday year">
+                </div>
+                <div class="field-btn">
+                    <button class="btn2">Обчислити вік</button>
+                </div>
+                <div class="out out2"></div>
+            </div>
+            <div class="box box-task3">
+                <h2>Normal Task 03</h2>
+                <p>Запитай у користувача довжину сторони квадрату і виведи периметр цього квадрата</p>
+                <div class="field-inp">
+                    <input class="inp3" type="number" placeholder="Сторона квадрата">
+                </div>
+                <div class="field-btn">
+                    <button class="btn3">Обчислити площу квадрата</button>
+                </div>
+                <div class="out out3"></div>
+            </div>
+            <div class="box box-task4">
+                <h2>Max Task 01</h2>
+                <p>Запитай у користувача радіус кола і виведи площу такої окружності.</p>
+                <div class="field-inp">
+                    <input class="inp4" type="number" placeholder="Радіус кола">
+                </div>
+                <div class="field-btn">
+                    <button class="btn4">Обчислити площу кола</button>
+                </div>
+                <div class="out out4"></div>
+            </div>
+            <div class="box box-task5">
+                <h2>Max Task 02</h2>
+                <p>Запитай у користувача відстань в кілометрах між двома містами і за скільки годин він хоче дістатися.
+                    Порахуй швидкість, з якою необхідно рухатися, щоб встигнути вчасно.</p>
+                <div class="field-inp">
+                    <input class="inp5-1" type="number" placeholder="Відстань між містами у км">
+                </div>
+                <div class="field-inp">
+                    <input class="inp5-2" type="number" placeholder="Години">
+                </div>
+                <div class="field-btn">
+                    <button class="btn5">Обчислити швидкість</button>
+                </div>
+                <div class="out out5"></div>
+            </div>
+            <div class="box box-task6">
+                <h2>Max Task 03</h2>
+                <p>Реалізуй конвертор валют. Користувач вводить долари, програма переводить їх в євро. Курс валют
+                    зберігається в
+                    константі.</p>
+                <div class="field-inp">
+                    <input class="inp6" type="number" placeholder="USD">
+                </div>
+                <div class="field-btn">
+                    <button class="btn6">Convert</button>
+                </div>
+                <div class="out out6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+    </body>
+
+</html>
