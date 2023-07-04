@@ -93,97 +93,77 @@
 
                 })
                 .catch(error => console.log(`Error: ${error}`))
-
-            function CreateCart(item) {
-                let cartContainer = document.createElement('div')
-                cartContainer.classList.add('cart')
-                if (item.status.toLowerCase() == 'dead')
-                    cartContainer.classList.add('dead')
-
-                let imgCart = document.createElement('img')
-                imgCart.src = `${item.image}`
-                imgCart.alt = `${item.name}`
-
-                let name = document.createElement('h2')
-                name.innerHTML = `${item.name}`
-
-                let species = document.createElement('h6')
-                species.innerHTML = `Раса: ${item.species}`
-
-                let status = document.createElement('h4')
-                status.innerHTML = `Статус: ${(item.status) ? item.status : 'невідомо'}`
-
-                cartContainer.append(imgCart, name, species, status)
-
-                return cartContainer
-            }
-            function showAllItems(list) {
-                out.innerHTML = ''
-                list.map(item => out.append(CreateCart(item)))
-            }
-            function sortAliveItems(list) {
-                showAllItems(list.filter(item => item.status.toLowerCase() == 'alive'))
-            }
-            function addOption(data) {
-                let arr = []
-                data.map(item => arr.push(item.species))
-                const options = new Set(arr)
-                selectFilterSpecies.append(createOption('All'))
-                options.forEach(item => selectFilterSpecies.append(createOption(item)))
-            }
-
-            function createOption(item) {
-                let option = document.createElement('option')
-                option.value = `${item.toLowerCase()}`
-                option.innerHTML = `${item}`
-                return option
-            }
-            function filterBySpecies(e, list) {
-                showAllItems(list.filter(item => item.species.toLowerCase() == e.target.value))
-            }
-
         }
-        newItems(env)
+        function CreateCart(item) {
+            let cartContainer = document.createElement('div')
+            cartContainer.classList.add('cart')
+            if (item.status.toLowerCase() == 'dead')
+                cartContainer.classList.add('dead')
+
+            let imgCart = document.createElement('img')
+            imgCart.src = `${item.image}`
+            imgCart.alt = `${item.name}`
+
+            let name = document.createElement('h2')
+            name.innerHTML = `${item.name}`
+
+            let species = document.createElement('h6')
+            species.innerHTML = `Раса: ${item.species}`
+
+            let status = document.createElement('h4')
+            status.innerHTML = `Статус: ${(item.status) ? item.status : 'невідомо'}`
+
+            cartContainer.append(imgCart, name, species, status)
+
+            return cartContainer
+        }
+        function showAllItems(list) {
+            out.innerHTML = ''
+            list.map(item => out.append(CreateCart(item)))
+        }
+        function sortAliveItems(list) {
+            showAllItems(list.filter(item => item.status.toLowerCase() == 'alive'))
+        }
+        function addOption(data) {
+            let arr = []
+            data.map(item => arr.push(item.species))
+            const options = new Set(arr)
+            selectFilterSpecies.append(createOption('All'))
+            options.forEach(item => selectFilterSpecies.append(createOption(item)))
+        }
+
+        function createOption(item) {
+            let option = document.createElement('option')
+            option.value = `${item.toLowerCase()}`
+            option.innerHTML = `${item}`
+            return option
+        }
+        function filterBySpecies(e, list) {
+            showAllItems(list.filter(item => item.species.toLowerCase() == e.target.value))
+        }
+        function createPaginationLink(text, href) {
+            let prev = document.createElement('a')
+            prev.innerHTML = text
+            prev.href = `${href}`
+            pagination.append(prev)
+            prev.addEventListener('click', (e) => {
+                e.preventDefault()
+                newItems(href)
+            })
+        }
         function createPagination(item) {
 
             pagination.innerHTML = ''
-            if (item.prev) {
-                let prev = document.createElement('a')
-                prev.innerHTML = '<'
-                prev.href = `${item.prev}`
-                pagination.append(prev)
-                prev.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    newItems(item.prev)
-                })
-            }
+            if (item.prev) createPaginationLink('<', item.prev)
             for (let i = 1; i <= item.pages; i++) {
                 let link2 = `${link}${i}`
-                let linkPagination = document.createElement('a')
-                if (i === 1) linkPagination.classList.add('active')
-                linkPagination.innerHTML = `${i}`
-                linkPagination.href = link2
-                pagination.append(linkPagination)
-                linkPagination.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    newItems(link2)
-                })
+                // if (i === 1) linkPagination.classList.add('active')
+                createPaginationLink(`${i}`, link2)
             }
-
-
-
-            if (item.next) {
-                let next = document.createElement('a')
-                next.innerHTML = '>'
-                next.href = `${item.next}`
-                pagination.append(next)
-                next.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    newItems(item.next)
-                })
-            }
+            if (item.next) createPaginationLink('>', item.next)
         }
 
+        newItems(env)
     </script>
 </body>
 
