@@ -83,16 +83,16 @@
         function newItems(env) {
             fetch(env)
                 .then(data => data.json())
-                .then(data => {
-                    showAllItems(data.results)
-                    console.log(data)
-                    createPagination(data.info)
-                    addOption(data.results)
-                    btnOnlyAlive.addEventListener('click', () => sortAliveItems(data.results))
-                    selectFilterSpecies.addEventListener('change', (e) => filterBySpecies(e, data.results))
-
-                })
+                .then(data => getNewItems(data))
                 .catch(error => console.log(`Error: ${error}`))
+        }
+        function getNewItems(data) {
+            showAllItems(data.results)
+            console.log(data)
+            createPagination(data.info)
+            addOption(data.results)
+            btnOnlyAlive.addEventListener('click', () => sortAliveItems(data.results))
+            selectFilterSpecies.addEventListener('change', (e) => filterBySpecies(e, data.results))
         }
         function CreateCart(item) {
             let cartContainer = document.createElement('div')
@@ -139,7 +139,11 @@
             return option
         }
         function filterBySpecies(e, list) {
-            showAllItems(list.filter(item => item.species.toLowerCase() == e.target.value))
+            if (e.target.value == 'All') {
+                showAllItems(list)
+            } else {
+                showAllItems(list.filter(item => item.species.toLowerCase() == e.target.value))
+            }
         }
         function createPaginationLink(text, href) {
             let prev = document.createElement('a')
