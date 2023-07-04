@@ -20,10 +20,11 @@ let itemsFavorite = []
 const shopItems = [
         {
                 sku: 'fl-1',
-                name: 'Barberton Daisy1',
+                name: 'name1',
                 category: 'House Plants',
                 img: 'image1.png',
                 price: 11.00,
+                size: 'small',
                 newArrival: true,
                 sale: 20,
                 favourite: false
@@ -31,10 +32,11 @@ const shopItems = [
         },
         {
                 sku: 'fl-2',
-                name: 'Barberton Daisy2',
+                name: 'name2',
                 category: 'Trerrariums',
                 img: 'image2.png',
                 price: 11.00,
+                size: 'small',
                 newArrival: true,
                 sale: 20,
                 favourite: false
@@ -46,6 +48,7 @@ const shopItems = [
                 category: 'House Plants',
                 img: 'image3.png',
                 price: 19.00,
+                size: 'large',
                 newArrival: false,
                 sale: 20,
                 favourite: false
@@ -56,6 +59,7 @@ const shopItems = [
                 name: 'Barberton Daisy4',
                 category: 'Trerrariums',
                 img: 'image4.png',
+                size: 'large',
                 price: 19.00,
                 newArrival: false,
                 sale: null,
@@ -68,6 +72,7 @@ const shopItems = [
                 category: 'House Plants',
                 img: 'image5.png',
                 price: 119.00,
+                size: 'medium',
                 newArrival: false,
                 sale: null,
                 favourite: false
@@ -79,6 +84,7 @@ const shopItems = [
                 category: 'House Plants',
                 img: 'image6.png',
                 price: 1.00,
+                size: 'medium',
                 newArrival: false,
                 sale: null,
                 favourite: false
@@ -225,16 +231,12 @@ function showCheaper(items, cheaper = true) {
         showProducts(items.sort((a, b) => (cheaper) ? a.price - b.price : b.price - a.price))
 }
 function search(e, arrItems) {
-        out.innerHTML = ""
+        out.innerHTML = ''
         arrItems.map(item => {
-
-                // Кейсенсетів шоб не реагувало на великі і маленьки букви
-                // виводити "Нічого не знайдено"
-                if (item.name.indexOf(e.target.value) >= 0) {
+                if (item.name.toLowerCase().indexOf(e.target.value.toLowerCase()) >= 0) {
                         console.log(item.name)
                         out.append(createProductItem(item))
                 }
-
         })
 }
 
@@ -244,14 +246,96 @@ function showProductsInCart(items) {
         console.log(drop)
         drop.innerHTML = ''
         items.map((item, key) => drop.append(createCartItem(item, key)))
+        //document.querySelector('.btn-minicart .count').innerHTML = ``
 }
 
+// ДЗ зробити шоб <select> працював
+
+function addFilter() {
+        let listLinks = document.querySelector('.filter__sizes .filter__list')
+        let arr = []
+        shopItems.map(item => arr.push(item.size))
+        //const allOption = shopItems.map(item => arr.push(item.size))
+        const option = new Set(arr)
+        // const count = {}
+        // option.map(item => {
+        //         allOption.map(item1 => (item1 === item)? count.name = )
+        // })
+
+        option.forEach(item => {
+                let filterItemContainer = document.createElement('li')
+                filterItemContainer.classList.add('filter__item')
+                let linkFilterItem = document.createElement('a')
+                linkFilterItem.classList.add('link')
+                linkFilterItem.href = '#'
+                let textFilterItem = document.createElement('span')
+                // textFilterItem.classList.add('filter__item')
+                textFilterItem.style = 'text-transform: capitalize;'
+                textFilterItem.innerHTML = `${item}`
+                let quantitytFilterItem = document.createElement('span')
+                quantitytFilterItem.classList.add('quantity')
+                //quantitytFilterItem.style = 'text-transform: capitalize;'
+                quantitytFilterItem.innerHTML = `0`
+                filterItemContainer.append(linkFilterItem)
+                linkFilterItem.append(textFilterItem)
+                linkFilterItem.append(quantitytFilterItem)
+                listLinks.append(filterItemContainer)
+
+                linkFilterItem.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showProducts(shopItems.filter(item2 => item2.size == item))
+                })
+        })
+}
+
+addFilter()
+
+function addFilterCategory() {
+        let listLinks = document.querySelector('.filter__categories .filter__list')
+        let arr = []
+        shopItems.map(item => arr.push(item.category))
+        //const allOption = shopItems.map(item => arr.push(item.size))
+        const option = new Set(arr)
+        // const count = {}
+        // option.map(item => {
+        //         allOption.map(item1 => (item1 === item)? count.name = )
+        // })
+
+        option.forEach(item => {
+                let filterItemContainer = document.createElement('li')
+                filterItemContainer.classList.add('filter__item')
+                let linkFilterItem = document.createElement('a')
+                linkFilterItem.classList.add('link')
+                linkFilterItem.href = '#'
+                let textFilterItem = document.createElement('span')
+                // textFilterItem.classList.add('filter__item')
+                textFilterItem.style = 'text-transform: capitalize;'
+                textFilterItem.innerHTML = `${item}`
+                let quantitytFilterItem = document.createElement('span')
+                quantitytFilterItem.classList.add('quantity')
+                //quantitytFilterItem.style = 'text-transform: capitalize;'
+                quantitytFilterItem.innerHTML = `0`
+                filterItemContainer.append(linkFilterItem)
+                linkFilterItem.append(textFilterItem)
+                linkFilterItem.append(quantitytFilterItem)
+                listLinks.append(filterItemContainer)
+
+
+                linkFilterItem.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showProducts(shopItems.filter(item2 => item2.category == item))
+                })
+        })
+}
+
+addFilterCategory()
 
 
 
 
 
-inputSearch.addEventListener('keydown', (e) => search(e, shopItems))
+
+inputSearch.addEventListener('keyup', (e) => search(e, shopItems))
 
 btnShowAll.addEventListener('click', (e) => {
         e.preventDefault()

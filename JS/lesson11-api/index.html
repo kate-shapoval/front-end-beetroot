@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .list__carts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .cart {
+        width: 300px;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+    }
+
+    .pagination {
+        text-align: center;
+
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .pagination a {
+        display: block;
+        padding: 5px;
+        margin: 10px;
+        color: #333;
+        background: #e5e5e5;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .pagination a.active,
+    .pagination a:hover {
+
+        color: #fff;
+        background: red;
+    }
+
+    .dead {
+        opacity: .5;
+    }
+
+    .filterStatus {
+        margin: 0 15px 0 0;
+    }
+
+    header {
+        margin: 0 0 20px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <select class="filterStatus"></select>
+            <button class="btn-only-alive">Only Alive</button>
+        </header>
+        <div class="list__carts">
+
+        </div>
+        <div class="pagination"></div>
+    </div>
+    <script>
+        const selectFilterSpecies = document.querySelector('.filterStatus')
+        const btnOnlyAlive = document.querySelector('.btn-only-alive')
+        const out = document.querySelector('.list__carts')
+        const pagination = document.querySelector('.pagination')
+        const link = 'https://rickandmortyapi.com/api/character?page='
+        const env = 'https://rickandmortyapi.com/api/character'
+        function newItems(env) {
+            fetch(env)
+                .then(data => data.json())
+                .then(data => {
+                    showAllItems(data.results)
+                    console.log(data)
+                    createPagination(data.info)
+                    addOption(data.results)
+                    btnOnlyAlive.addEventListener('click', () => sortAliveItems(data.results))
+                    selectFilterSpecies.addEventListener('change', (e) => filterBySpecies(e, data.results))
+
+                })
+                .catch(error => console.log(`Error: ${error}`))
+
+            function CreateCart(item) {
+                let cartContainer = document.createElement('div')
+                cartContainer.classList.add('cart')
+                if (item.status.toLowerCase() == 'dead')
+                    cartContainer.classList.add('dead')
+
+                let imgCart = document.createElement('img')
+                imgCart.src = `${item.image}`
+                imgCart.alt = `${item.name}`
+
+                let name = document.createElement('h2')
+                name.innerHTML = `${item.name}`
+
+                let species = document.createElement('h6')
+                species.innerHTML = `Раса: ${item.species}`
+
+                let status = document.createElement('h4')
+                status.innerHTML = `Статус: ${(item.status) ? item.status : 'невідомо'}`
+
+                cartContainer.append(imgCart, name, species, status)
+
+                return cartContainer
+            }
+            function showAllItems(list) {
+                out.innerHTML = ''
+                list.map(item => out.append(CreateCart(item)))
+            }
+            function sortAliveItems(list) {
+                showAllItems(list.filter(item => item.status.toLowerCase() == 'alive'))
+            }
+            function addOption(data) {
+                let arr = []
+                data.map(item => arr.push(item.species))
+                const options = new Set(arr)
+                selectFilterSpecies.append(createOption('All'))
+                options.forEach(item => selectFilterSpecies.append(createOption(item)))
+            }
+
+            function createOption(item) {
+                let option = document.createElement('option')
+                option.value = `${item.toLowerCase()}`
+                option.innerHTML = `${item}`
+                return option
+            }
+            function filterBySpecies(e, list) {
+                showAllItems(list.filter(item => item.species.toLowerCase() == e.target.value))
+            }
+
+        }
+        newItems(env)
+        function createPagination(item) {
+
+            pagination.innerHTML = ''
+            if (item.prev) {
+                let prev = document.createElement('a')
+                prev.innerHTML = '<'
+                prev.href = `${item.prev}`
+                pagination.append(prev)
+                prev.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    newItems(item.prev)
+                })
+            }
+            for (let i = 1; i <= item.pages; i++) {
+                let link2 = `${link}${i}`
+                let linkPagination = document.createElement('a')
+                if (i === 1) linkPagination.classList.add('active')
+                linkPagination.innerHTML = `${i}`
+                linkPagination.href = link2
+                pagination.append(linkPagination)
+                linkPagination.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    newItems(link2)
+                })
+            }
+
+
+
+            if (item.next) {
+                let next = document.createElement('a')
+                next.innerHTML = '>'
+                next.href = `${item.next}`
+                pagination.append(next)
+                next.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    newItems(item.next)
+                })
+            }
+        }
+
+    </script>
+</body>
+
+</html>
