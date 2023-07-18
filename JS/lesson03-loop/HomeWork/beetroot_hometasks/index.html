@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Lesson2</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font: 400 16px/20px Arial, Helvetica, sans-serif;
+        color: #333;
+    }
+
+    .wrapper {
+        max-width: 1003px;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 30px 0 0;
+    }
+
+    .tasks {
+        /* display: grid;
+        grid-template-columns: repeat(3, 1fr); */
+        gap: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font: 700 36px/42px Arial, Helvetica, sans-serif;
+        margin: 0 0 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font: 700 26px/32px Arial, Helvetica, sans-serif;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+
+    p {
+        margin: 0 0 15px;
+    }
+
+    .field-inp {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .5);
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 0 0 15px;
+    }
+
+    .field-inp input {
+        background: none;
+        font: 400 16px/20px Arial, Helvetica, sans-serif;
+        color: #333;
+        height: 20px;
+        width: 100%;
+        border: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+    }
+
+    .field-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        display: block;
+        cursor: pointer;
+        border: none;
+        background: #55acfd;
+        border-radius: 5px;
+        color: #fff;
+        padding: 10px;
+        margin: 0 0 15px;
+    }
+
+    .out {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .5);
+        border-radius: 5px;
+        padding: 5px 10px;
+
+        min-height: 30px;
+        padding: 5px 10px;
+    }
+
+    .box {
+        border: 1px solid #55acfd;
+        background: rgb(85, 172, 253, .3);
+        padding: 20px;
+        border-radius: 10px;
+
+    }
+
+    .box-task2 {
+        width: 100% !important;
+    }
+
+    .out2 {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-gap: 5px;
+    }
+
+    .btn2 {
+        margin: 0 0 15px 5px;
+    }
+</style>
+<div>
+    <div class="wrapper">
+        <h1>Lesson3. Типи даних та оператори</h1>
+        <div class="tasks">
+            <div class="box box-task1">
+                <h2>Max Task 01</h2>
+                <p>Гра «Вгадай число». Запропонуй користувачеві загадати число від 0 до 100 і відгадай його наступним
+                    способом:<br>
+                    кожну ітерацію циклу діли діапазон чисел навпіл, записуй результат в N і питай у користувача <br>
+                    «Ваше число більше N, менше N або дорівнює N?». Залежно від того що вказав користувач, зменшуй
+                    діапазон.<br>
+                    Початковий діапазон від 0 до 100, поділи навпіл і отримай 50. Якщо користувач вказав, що його число>
+                    50,<br>
+                    то зміни діапазон на від 50 до 100. І так до тих пір, поки користувач не вибере == N <br>
+                    (буде корисним почитати про алгоритм: "бінарний пошук").</p>
+                <div class="field-inp">
+                    Min<input class="inp31" type="number" placeholder="0" disabled>
+                </div>
+                <div class="field-inp">
+                    Max<input class="inp32" type="number" placeholder="100" disabled>
+                </div>
+                <div class="field-btn">
+                    <button class="btn11">Так</button>
+                    <button class="btn12">Ні</button>
+                </div>
+                <div class="out out1"></div>
+            </div>
+            <div class="box box-task2">
+                <h2>Max Task 02</h2>
+                <p>Виведи таблицю множення для всіх чисел від 2 до 9. Кожне число необхідно помножити на числа від 1 до
+                    10</p>
+                <div class="field-btn">
+                    <button class="btn2">Виконай</button>
+                </div>
+                <div class="out out2"></div>
+            </div>
+            <div class="box box-task3">
+                <h2>Max Task 03</h2>
+                <p>Запитай дату (день, місяць, рік) і виведи наступну за нею дату. Враховуй можливість переходу на
+                    наступний місяць, рік, а також високосний рік.</p>
+                <div class="field-inp">
+                    <input class="inp31" type="number" placeholder="день">
+                </div>
+                <div class="field-inp">
+                    <input class="inp32" type="number" placeholder="місяць, числом">
+                </div>
+                <div class="field-inp">
+                    <input class="inp33" type="number" placeholder="рік">
+                </div>
+                <div class="field-btn">
+                    <button class="btn3">наступна дата</button>
+                </div>
+                <div class="out out3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+    </body>
+
+</html>

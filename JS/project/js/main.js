@@ -1,121 +1,44 @@
-// Task 1
-
-// 1: Потрібно створити масив обєктів. В одному обєкті повинно бути мінімум 3 ключа { name: "Sasha", age:22 }
-// 2: Вивести на єкран
-
 let out = document.querySelector('.products__list')
-let btnShowAll = document.querySelector('.show-all')
-let btnNewProducts = document.querySelector('.show-new')
-let btnShowSales = document.querySelector('.show-sale')
-let sortLinks = document.querySelectorAll('.products__groups .link')
-let inputSearch = document.querySelector('.search-product')
-let sortSelect = document.querySelector('select.sort-products')
 
 let btnMiniCart = document.getElementById("btnMiniCart")
-let wrapperMiniCart = document.getElementById("wrapperMiniCart")
-let itemsCart = []
 
-let itemsFavorite = []
+let btnAddFavourite = document.getElementById("btnFavourite");
 
-const shopItems = [
-        {
-                sku: 'fl-1',
-                name: 'Barberton Daisy1',
-                category: 'House Plants',
-                img: 'image1.png',
-                price: 11.00,
-                newArrival: true,
-                sale: 20,
-                favourite: false
+(function () {
+        shopItems.map(item => out.append(createProductItem(item)))
+        addFilterSize()
+        addFilterCategory()
 
-        },
-        {
-                sku: 'fl-2',
-                name: 'Barberton Daisy2',
-                category: 'Trerrariums',
-                img: 'image2.png',
-                price: 11.00,
-                newArrival: true,
-                sale: 20,
-                favourite: false
+        inputSearch.addEventListener('keyup', (e) => search(e, shopItems))
 
-        },
-        {
-                sku: 'fl-3',
-                name: 'Barberton Daisy3',
-                category: 'House Plants',
-                img: 'image3.png',
-                price: 19.00,
-                newArrival: false,
-                sale: 20,
-                favourite: false
+        btnShowAll.addEventListener('click', (e) => {
+                e.preventDefault()
+                showProducts(shopItems)
+                toggleClassForList({
+                        list: sortLinks,
+                        activeItem: e.target
+                })
 
-        },
-        {
-                sku: 'fl-4',
-                name: 'Barberton Daisy4',
-                category: 'Trerrariums',
-                img: 'image4.png',
-                price: 19.00,
-                newArrival: false,
-                sale: null,
-                favourite: false
-
-        },
-        {
-                sku: 'fl-5',
-                name: 'Barberton Daisy5',
-                category: 'House Plants',
-                img: 'image5.png',
-                price: 119.00,
-                newArrival: false,
-                sale: null,
-                favourite: false
-
-        },
-        {
-                sku: 'fl-6',
-                name: 'Barberton Daisy6',
-                category: 'House Plants',
-                img: 'image6.png',
-                price: 1.00,
-                newArrival: false,
-                sale: null,
-                favourite: false
-
-        },
-
-]
-
-const productItemAdd = []
-
-function createCartItem(item, key) {
-        let cartItem = document.createElement('div')
-        cartItem.classList.add('cart-bag__item')
-
-        let name = document.createElement('div')
-        name.classList.add('cart-bag__name')
-        name.innerText = `${item.name}`
-        cartItem.append(name)
-
-        let price = document.createElement('div')
-        price.classList.add('cart-bag__price')
-        price.innerText = `${item.price}`
-        cartItem.append(price)
-
-        let btnDelete = document.createElement('button')
-        btnDelete.classList.add('btn-delete')
-        btnDelete.innerText = 'X'
-        cartItem.append(btnDelete)
-        btnDelete.addEventListener('click', (e) => {
-                itemsCart.splice(key, key + 1)
-                console.log(key)
-                console.log(itemsCart)
-                e.target.parentNode.remove()
         })
-        //wrapperMiniCart.getElementsByClassName('cart-bag__dropdown').append(cartItem)
-        return cartItem
-}
+
+        btnNewProducts.addEventListener('click', (e) => {
+                e.preventDefault()
+                showNewProducts(shopItems)
+                toggleClassForList({
+                        list: sortLinks,
+                        activeItem: e.target
+                })
+        })
+        btnShowSales.addEventListener('click', (e) => {
+                e.preventDefault()
+                showSalesProducts(shopItems)
+                toggleClassForList({
+                        list: sortLinks,
+                        activeItem: e.target
+                })
+        })
+        sortSelect.addEventListener('change', (event) => sortProductsBySelect(event.target, shopItems))
+})()
 
 function createProductItem(item) {
 
@@ -140,13 +63,13 @@ function createProductItem(item) {
         btnAddCartContainer.append(btnAddCart)
         productLinks.append(btnAddCartContainer)
 
-        let btnAddFavoriteContainer = document.createElement('li')
-        btnAddFavoriteContainer.classList.add('products__links-item')
-        let btnAddFavorite = document.createElement('a')
-        btnAddFavorite.href = '#'
-        btnAddFavorite.innerHTML = `<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10 17.8873C9.71527 17.8873 9.44077 17.7842 9.22684 17.5968C8.41888 16.8903 7.63992 16.2264 6.95267 15.6408L6.94916 15.6377C4.93423 13.9207 3.19427 12.4378 1.98364 10.9771C0.630341 9.34409 0 7.79578 0 6.10434C0 4.46097 0.563507 2.94485 1.58661 1.83508C2.62192 0.712189 4.04251 0.09375 5.58716 0.09375C6.74164 0.09375 7.79892 0.45874 8.72955 1.1785C9.19922 1.54181 9.62494 1.98645 10 2.5051C10.3752 1.98645 10.8008 1.54181 11.2706 1.1785C12.2012 0.45874 13.2585 0.09375 14.413 0.09375C15.9575 0.09375 17.3782 0.712189 18.4135 1.83508C19.4366 2.94485 20 4.46097 20 6.10434C20 7.79578 19.3698 9.34409 18.0165 10.9769C16.8059 12.4378 15.0661 13.9205 13.0515 15.6374C12.363 16.224 11.5828 16.8889 10.773 17.5971C10.5592 17.7842 10.2846 17.8873 10 17.8873V17.8873ZM5.58716 1.26532C4.37363 1.26532 3.25882 1.74963 2.44781 2.62915C1.62476 3.52194 1.17142 4.75607 1.17142 6.10434C1.17142 7.52692 1.70013 8.79919 2.88559 10.2296C4.03137 11.6122 5.73563 13.0645 7.70889 14.7462L7.71255 14.7492C8.4024 15.3371 9.18442 16.0036 9.99832 16.7153C10.8171 16.0023 11.6003 15.3347 12.2916 14.7458C14.2647 13.0642 15.9688 11.6122 17.1146 10.2296C18.2999 8.79919 18.8286 7.52692 18.8286 6.10434C18.8286 4.75607 18.3752 3.52194 17.5522 2.62915C16.7413 1.74963 15.6264 1.26532 14.413 1.26532C13.524 1.26532 12.7078 1.54791 11.9872 2.10516C11.3449 2.60199 10.8975 3.23004 10.6352 3.66949C10.5003 3.89548 10.2629 4.03036 10 4.03036C9.73709 4.03036 9.49966 3.89548 9.36478 3.66949C9.10263 3.23004 8.65524 2.60199 8.01285 2.10516C7.29218 1.54791 6.47598 1.26532 5.58716 1.26532V1.26532Z" fill="#3D3D3D" /> </svg>`
-        btnAddFavoriteContainer.append(btnAddFavorite)
-        productLinks.append(btnAddFavoriteContainer)
+        let btnAddFavouriteContainer = document.createElement('li')
+        btnAddFavouriteContainer.classList.add('products__links-item')
+        let btnAddFavourite = document.createElement('a')
+        btnAddFavourite.href = '#'
+        btnAddFavourite.innerHTML = `<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10 17.8873C9.71527 17.8873 9.44077 17.7842 9.22684 17.5968C8.41888 16.8903 7.63992 16.2264 6.95267 15.6408L6.94916 15.6377C4.93423 13.9207 3.19427 12.4378 1.98364 10.9771C0.630341 9.34409 0 7.79578 0 6.10434C0 4.46097 0.563507 2.94485 1.58661 1.83508C2.62192 0.712189 4.04251 0.09375 5.58716 0.09375C6.74164 0.09375 7.79892 0.45874 8.72955 1.1785C9.19922 1.54181 9.62494 1.98645 10 2.5051C10.3752 1.98645 10.8008 1.54181 11.2706 1.1785C12.2012 0.45874 13.2585 0.09375 14.413 0.09375C15.9575 0.09375 17.3782 0.712189 18.4135 1.83508C19.4366 2.94485 20 4.46097 20 6.10434C20 7.79578 19.3698 9.34409 18.0165 10.9769C16.8059 12.4378 15.0661 13.9205 13.0515 15.6374C12.363 16.224 11.5828 16.8889 10.773 17.5971C10.5592 17.7842 10.2846 17.8873 10 17.8873V17.8873ZM5.58716 1.26532C4.37363 1.26532 3.25882 1.74963 2.44781 2.62915C1.62476 3.52194 1.17142 4.75607 1.17142 6.10434C1.17142 7.52692 1.70013 8.79919 2.88559 10.2296C4.03137 11.6122 5.73563 13.0645 7.70889 14.7462L7.71255 14.7492C8.4024 15.3371 9.18442 16.0036 9.99832 16.7153C10.8171 16.0023 11.6003 15.3347 12.2916 14.7458C14.2647 13.0642 15.9688 11.6122 17.1146 10.2296C18.2999 8.79919 18.8286 7.52692 18.8286 6.10434C18.8286 4.75607 18.3752 3.52194 17.5522 2.62915C16.7413 1.74963 15.6264 1.26532 14.413 1.26532C13.524 1.26532 12.7078 1.54791 11.9872 2.10516C11.3449 2.60199 10.8975 3.23004 10.6352 3.66949C10.5003 3.89548 10.2629 4.03036 10 4.03036C9.73709 4.03036 9.49966 3.89548 9.36478 3.66949C9.10263 3.23004 8.65524 2.60199 8.01285 2.10516C7.29218 1.54791 6.47598 1.26532 5.58716 1.26532V1.26532Z" fill="#3D3D3D" /> </svg>`
+        btnAddFavouriteContainer.append(btnAddFavourite)
+        productLinks.append(btnAddFavouriteContainer)
 
         let link3Container = document.createElement('li')
         link3Container.classList.add('products__links-item')
@@ -170,112 +93,111 @@ function createProductItem(item) {
         price.classList.add('products__item-price')
         price.innerText = `${item.price}`
 
-        //let btnAddCart = document.createElement('button')
 
-        // btnAddCart.classList.add('products__btn-add')
-        // btnAddCart.innerText = `Add Cart`
+        btnAddCart.addEventListener('click', (e) => addToList(e, item, 'cart'))
 
-        btnAddCart.addEventListener('click', () => {
-                itemsCart.push(item)
-                showProductsInCart(itemsCart)
-        }, { 'once': true })
-
-        btnAddFavorite.addEventListener('click', () => {
-                itemsFavorite.push(item)
-                console.log(itemsFavorite)
-        }, { 'once': true })
+        btnAddFavourite.addEventListener('click', (e) => addToList(e, item, 'favourite'))
 
         productItem.append(imgCotainer, title, price)
 
 
         return productItem
 }
-function toggleClassForList({ list, activeItem }, activeActive = 'link--active') {
-        list.forEach(item => item.classList.remove(activeActive))
-        activeItem.classList.add(activeActive)
-}
 
-shopItems.map(item => out.append(createProductItem(item)))
-
-
-//sort function
-function showProducts(items) {
-        out.innerHTML = ''
-        items.map(item => out.append(createProductItem(item)))
-}
-
-function showSalesProducts(items) {
-        out.innerHTML = ''
-        items.map(item => (item.sale) ? out.append(createProductItem(item)) : '');
-}
-
-function showNewProducts(items) {
-        showProducts(items.filter(item => item.newArrival))
-}
-
-function sortProductsBySelect(select, items) {
-        switch (select.value) {
-                case 'top': showCheaper(items, false); break;
-                case 'cheaper': showCheaper(items, true); break;
-                case 'expansive': showCheaper(items, false); break;
-                default: showProducts(items); break;
-        }
-}
-function showCheaper(items, cheaper = true) {
-        showProducts(items.sort((a, b) => (cheaper) ? a.price - b.price : b.price - a.price))
-}
-function search(e, arrItems) {
-        out.innerHTML = ""
-        arrItems.map(item => {
-
-                // Кейсенсетів шоб не реагувало на великі і маленьки букви
-                // виводити "Нічого не знайдено"
-                if (item.name.indexOf(e.target.value) >= 0) {
-                        console.log(item.name)
-                        out.append(createProductItem(item))
-                }
-
-        })
-}
 
 //cart
-function showProductsInCart(items) {
-        let drop = wrapperMiniCart.querySelector('.cart-bag__dropdown')
-        console.log(drop)
-        drop.innerHTML = ''
-        items.map((item, key) => drop.append(createCartItem(item, key)))
+class ListHeader {
+        constructor(nameList) {
+                this.itemsList = JSON.parse(localStorage.getItem(nameList)) || []
+        }
+        create(item, key) {
+                let itemList = document.createElement('div')
+                itemList.classList.add(this.options.classItem)
+
+                let name = document.createElement('div')
+                name.classList.add(this.options.className)
+                name.innerText = `${item.name}`
+                itemList.append(name)
+
+                // let price = document.createElement('div')
+                // price.classList.add(this.options.classPrice)
+                // price.innerText = `${item.price}`
+                // itemList.append(price)
+
+                let btnDelete = document.createElement('button')
+                btnDelete.classList.add(this.options.classBtnDelete)
+                btnDelete.innerText = 'X'
+                itemList.append(btnDelete)
+                btnDelete.addEventListener('click', (e) => this.deleteItem(e, key))
+
+                return itemList
+        }
+        inList(itemList) {
+                return this.itemsList?.find(item => itemList.sku === item.sku) || false
+        }
+        add(item, nameList) {
+                if (!this.inList(item)) this.itemsList.push(item)
+                localStorage.setItem(nameList, JSON.stringify(this.itemsList))
+                return this.show(nameList)
+        }
+        deleteItem(e, key) {
+                e.preventDefault()
+                this.itemsList.splice(key, 1)
+                this.options.count.innerHTML = `${this.itemsList.length}`
+                e.target.parentNode.remove()
+                this.show(nameList)
+        }
+        show(nameList) {
+                this.options.dropDown.innerHTML = ''
+                let list = JSON.parse(localStorage.getItem(nameList))
+                list.map((item, key) => this.options.dropDown.append(this.create(item, key)))
+                this.options.count.innerHTML = `${list.length}`
+        }
+}
+class Cart extends ListHeader {
+        constructor() {
+                super()
+                this.options = {
+                        classItem: 'cart-bag__item',
+                        className: 'cart-bag__name',
+                        classPrice: 'cart-bag__price',
+                        classBtnDelete: 'btn-delete',
+                        dropDown: document.querySelector('.cart-bag__dropdown'),
+                        wrapper: document.getElementById("wrapperCart"),
+                        count: document.querySelector('.btn-minicart .count')
+                }
+        }
+}
+class Favourite extends ListHeader {
+        constructor() {
+                super()
+                this.options = {
+                        classItem: 'favourite__item',
+                        className: 'favourite__name',
+                        classPrice: 'favourite__price',
+                        classBtnDelete: 'btn-delete',
+                        dropDown: document.querySelector('.favourite__dropdown'),
+                        wrapper: document.getElementById("wrapperFavourite"),
+                        count: document.querySelector('.btn-favourite .count')
+                }
+        }
 }
 
-
-
-
-
-
-inputSearch.addEventListener('keydown', (e) => search(e, shopItems))
-
-btnShowAll.addEventListener('click', (e) => {
+let cartList = new Cart('cart');
+let favouriteList = new Favourite('favourite');
+function addToList(e, item, typeList) {
         e.preventDefault()
-        showProducts(shopItems)
-        toggleClassForList({
-                list: sortLinks,
-                activeItem: e.target
-        })
-
+        if (typeList === 'cart') {
+                cartList.add(item, 'cart')
+        } else if (typeList === 'favourite') {
+                favouriteList.add(item, 'favourite')
+        }
+}
+const btnOpenCart = document.getElementById('btnMiniCart')
+const btnOpenFavourite = document.getElementById('btnFavourite')
+btnOpenCart.addEventListener('click', () => {
+        document.getElementById('wrapperMiniCart').classList.toggle('active')
 })
-btnNewProducts.addEventListener('click', (e) => {
-        e.preventDefault()
-        showNewProducts(shopItems)
-        toggleClassForList({
-                list: sortLinks,
-                activeItem: e.target
-        })
+btnOpenFavourite.addEventListener('click', () => {
+        document.getElementById('wrapperFavourite').classList.toggle('active')
 })
-btnShowSales.addEventListener('click', (e) => {
-        e.preventDefault()
-        showSalesProducts(shopItems)
-        toggleClassForList({
-                list: sortLinks,
-                activeItem: e.target
-        })
-})
-sortSelect.addEventListener('change', (event) => sortProductsBySelect(event.target, shopItems))
