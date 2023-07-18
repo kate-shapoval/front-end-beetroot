@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        color: #46A358;
+        font: bold 32px/38px Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 0 20px;
+    }
+
+    table {
+        background: #fff;
+        /* border: 1px solid #fff; */
+
+        overflow: hidden;
+        width: 100%;
+    }
+
+    table td,
+    table th {
+        background: #46A358;
+        border: 1px solid #fff;
+        padding: 10px 25px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    table th {
+        color: #fff;
+        font: bold 18px/22px Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    table td {
+        background: #46a35910;
+    }
+
+    table tr:nth-child(2n) {
+        background: #46a35937;
+    }
+
+    body {
+        padding: 10px 10px 10px 110px;
+        margin: 0;
+        color: #333;
+        font: 16px/20px Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    input {
+        outline: none;
+    }
+
+    a,
+    button {
+        cursor: pointer;
+    }
+
+    form {
+        background: #46a35910;
+        padding: 30px;
+        width: 100%;
+        margin: 0 0 20px;
+        border-radius: 5px;
+        font: 16px/20px Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    form h3 {
+        color: #46A358;
+        font: bold 22px/28px Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 0 20px;
+
+    }
+
+    form .form-field {
+        background: #46a35910;
+        border: 2px solid #46A358;
+        width: 45%;
+        margin: 0 0 10px;
+        border-radius: 5px;
+        padding: 10px 15px;
+    }
+
+    .form-field input {
+        background: none;
+        border: none;
+        font: 16px/20px Verdana, Geneva, Tahoma, sans-serif;
+        color: #333;
+        width: 100%;
+    }
+
+    .block-btns {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn {
+        background: #46A358;
+        border: 2px solid #46A358;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #fff;
+        font: bold 16px/20px Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .btn-reset {
+        background: transparent;
+        color: #46A358;
+    }
+
+    .btn:hover {
+        opacity: .75;
+    }
+
+    a {
+        color: #398348;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .top-nav {
+        justify-content: end;
+        margin: 0 0 20px;
+    }
+
+    .navigation {
+        position: fixed;
+        width: 100px;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background: #46A358;
+        color: #fff;
+
+    }
+
+    .navigation button {
+        background: none;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #fff;
+        font: bold 16px/20px Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+
+<body>
+    <nav class="navigation">
+        <ul>
+            <li><button>Users</button></li>
+            <li><button>Products</button></li>
+            <li><button>Orders</button></li>
+        </ul>
+    </nav>
+    <h1>Users list</h1>
+    <div class="top-nav block-btns">
+        <button class="btn btn-new">Create new</button>
+        <button class="btn btn-filter">Filter</button>
+    </div>
+    <form class="create" name="userForm">
+        <h3>Create new user</h3>
+        <input type="hidden" name="id" value="0" />
+        <div class="form-field">
+            <input class="form-control" placeholder="Name" name="name" />
+        </div>
+        <div class="form-field">
+            <input class="form-control" placeholder="Age" name="age" />
+        </div>
+        <div class="block-btns">
+            <button type="submit" class="btn btn-sm btn-primary">Save</button>
+            <button id="reset" class="btn btn-sm btn-reset">Reset</button>
+        </div>
+    </form>
+    <div class="content"></div>
+
+    <script>
+        users = [
+            {
+                _id: 1,
+                name: 'name1',
+                age: 12
+            },
+            {
+                _id: 2,
+                name: 'name2',
+                age: 15
+            },
+            {
+                _id: 3,
+                name: 'name3',
+                age: 10
+            },
+            {
+                _id: 4,
+                name: 'name4',
+                age: 18
+            }
+        ]
+        function headerTable(user) {
+            const headers = document.createElement('thead')
+            //const th = document.createElement('th')
+            const headersName = Object.keys(user)
+            headersName.forEach(item => {
+                const th = document.createElement('th')
+                th.innerText = item
+                headers.append(th)
+            })
+            headers.append(document.createElement('th'))
+            return headers
+        }
+        function createTable(items) {
+            let content = document.querySelector(".content");
+            const table = document.createElement('table')
+            content.append(table)
+            table.append(headerTable(items[0]))
+            let rows = document.createElement('tbody')
+            table.append(rows)
+            items.forEach(item => rows.append(row(item)));
+        }
+        function row(user) {
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-rowid", user._id);
+            const idTd = document.createElement("td");
+            idTd.append(user._id);
+            tr.append(idTd);
+            const nameTd = document.createElement("td");
+            nameTd.append(user.name);
+            tr.append(nameTd);
+            const ageTd = document.createElement("td");
+            ageTd.append(user.age);
+            tr.append(ageTd);
+            const linksTd = document.createElement("td");
+            const editLink = document.createElement("a");
+            editLink.setAttribute("data-id", user._id);
+            editLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            editLink.append("Update");
+            editLink.addEventListener("click", e => {
+                e.preventDefault();
+                getUser(user._id);
+            });
+            linksTd.append(editLink);
+            const removeLink = document.createElement("a");
+            removeLink.setAttribute("data-id", user._id);
+            removeLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            removeLink.append("Delete");
+            removeLink.addEventListener("click", e => {
+                e.preventDefault();
+                deleteUser(user._id);
+            });
+            linksTd.append(removeLink);
+            tr.appendChild(linksTd);
+            return tr;
+        }
+        createTable(users)
+    </script>
+</body>
+
+</html>

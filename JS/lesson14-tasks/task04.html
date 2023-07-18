@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Task04: to do list
+    </h2>
+
+
+    <input class="input-task" type="text"> <button class="add">add</button>
+
+    <ol class="tasks-todo">
+    </ol>
+
+    <div class="count">1</div>
+
+    <script>
+        const inputTask = document.querySelector('.input-task')
+        const listTasks = document.querySelector('.tasks-todo')
+        const addTask = document.querySelector('.add')
+        let countTasks = document.querySelector('.count')
+        let arrayTasks = []
+        countTasks.innerText = arrayTasks.length
+        function createItemTask(textTask) {
+            if (textTask) {
+                const item = document.createElement('li')
+                item.classList.add('tasks-todo_item')
+                item.innerText = textTask
+
+                const doneTask = document.createElement('input')
+                doneTask.setAttribute('type', 'checkbox')
+                item.append(doneTask)
+                doneTask.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+
+                    }
+                })
+
+                countTasks.innerText = arrayTasks.length
+                return item
+            }
+            //const item = document.createElement('li').classList.add('tasks-todo_item')
+        }
+        function createItemTask(textTask) {
+            if (textTask) {
+                const item = document.createElement('li')
+                item.classList.add('tasks-todo_item')
+                item.innerText = textTask
+                listTasks.append(item)
+            }
+            //const item = document.createElement('li').classList.add('tasks-todo_item')
+        }
+        addTask.addEventListener('click', () => {
+            let textTask = inputTask.value
+            createItemTask(textTask)
+            arrayTasks.push(textTask)
+            inputTask.value = ''
+        })
+
+    </script>
+</body>
+
+</html>
