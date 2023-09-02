@@ -1,0 +1,53 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+$main-fonts: 'Open Sans', sans-serif;
+/* Colors */
+$color-black: #2F281E;
+$color-green: #46A358;
+$color-green-light: rgba(70, 163, 88, 0.13);
+$color-white: #fff;
+$color-bg-modal: #2f281eaa;
+$color-border: #E5E5E5;
+$color-gray: #727272;
+$color-gray-dark: #3D3D3D;
+$color-gray-light: #A5A5A5;
+$color-gray-exra-light: #FBFBFB;
+$color-btn-hover: #d28005;
+$color-bg-slider: #F5F5F5;
+$color-sub-bg: #FBFBFB;
+/* font-weight: 600; font-size: 16px;/line-height: 20px; font-family:*/
+$title-fonts: 700 30px/40px $main-fonts;
+$sub-title-fonts: 700 36px/44px $main-fonts;
+$title-slider-fonts: 900 70px/80px $main-fonts;
+$text-slider-fonts: 400 14px/24px $main-fonts;
+$h3-fonts: 600 22px/44px $main-fonts;
+$simple-text-fonts: 500 16px/26px $main-fonts;
+$hero-text-fonts: 400 18px/28px $main-fonts;
+$text-fonts: 500 14px/20px $main-fonts;
+$btn-fonts: 600 16px/20px $main-fonts;
+$link-fonts: 400 15px/20px $main-fonts;
+$filter-title-fonts: 700 18px/22px $main-fonts;
+$filter-text-fonts: 400 15px/20px $main-fonts;
+$footer-title-fonts: 700 18px/22px $main-fonts;
+$product-top-block-fonts: 400 15px/19px $main-fonts;
+$post-title-fonts: 700 20px/26px $main-fonts;
+/* spasing */
+$r-4: 4px;
+$header-top: 80px;
+
+
+
+$title-slider-fonts-m: 900 42px/56px $main-fonts;
+
+@media (max-width: 992px) {
+    $title-fonts: 700 34px/44px $main-fonts;
+    $link-fonts: 700 20px/20px $main-fonts;
+}
+
+@media (max-width: 767px) {
+    $title-fonts: 700 29px/44px $main-fonts;
+    $sub-title-fonts: 700 25px/39px $main-fonts;
+
+    $text-slider-fonts: 400 14px/24px $main-fonts;
+
+}

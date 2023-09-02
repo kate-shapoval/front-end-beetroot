@@ -1,0 +1,70 @@
+.hero {
+    margin: 0 0 23px;
+
+    background: $color-black;
+
+    p {
+        margin: 0 0 20px;
+    }
+}
+
+.slider {
+    color: $color-white;
+    font: $text-slider-fonts;
+
+    &__item {
+        position: relative;
+        padding: 108px 537px 105px 43px;
+    }
+
+    &__title {
+        color: $color-white;
+        font: $title-slider-fonts;
+        margin: 0 0 25px;
+
+        .mark {
+            color: $color-red;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        bottom: 50%;
+        right: 0;
+        transform: translateY(50%);
+        width: 518px;
+    }
+
+    p {
+        margin: 0 0 55px;
+    }
+
+    .btn-container {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .products .filter {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .slider {
+        &__img {
+            position: static;
+            transform: translateY(0);
+            width: 100%;
+        }
+
+        &__item {
+            padding: 28px 15px;
+        }
+
+        &__title {
+            font: $title-slider-fonts-m;
+        }
+    }
+}

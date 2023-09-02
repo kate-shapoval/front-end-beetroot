@@ -1,0 +1,76 @@
+@import '../../assets/sass/global/variebles.scss';
+
+.portfolio {
+    background: $color-black;
+    color: $color-white;
+    padding: 40px 0 60px;
+
+    &__title {
+        color: $color-white;
+        font: 900 40px/50px "Open Sans", sans-serif;
+        margin: 0 0 25px;
+
+        .mark {
+            color: $color-red;
+        }
+    }
+
+    h1.portfolio__title {
+        font: 900 50px/60px "Open Sans", sans-serif;
+        margin: 0 0 35px;
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    .ditails {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 25px;
+        opacity: 0;
+        background: rgba($color: #000000, $alpha: .75);
+    }
+
+    &__item:hover .ditails {
+        opacity: 1;
+        transition: all .4s;
+    }
+
+    &__item-title {
+        display: flex;
+        gap: 15px;
+        justify-content: start;
+        align-items: center;
+        color: $color-white;
+        font: 900 20px/30px "Open Sans", sans-serif;
+        margin: 0 0 15px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 0 0 30px;
+    }
+
+    p {
+        margin: 0 0 25px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .portfolio {
+        &__list {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

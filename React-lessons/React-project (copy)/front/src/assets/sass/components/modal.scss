@@ -1,0 +1,57 @@
+.modal {
+    background: rgba(0, 0, 0, .75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 8ms;
+}
+
+.modal--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.form-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background: $color-white;
+    border-radius: 15px;
+    width: fit-content;
+    padding: 30px;
+    position: relative;
+
+    opacity: 0;
+    transition: all 8ms;
+}
+
+.modal h2 {
+    margin: 0 0 20px;
+}
+
+.modal--visible .form-login {
+    opacity: 1;
+    background: $color-white;
+}
+
+.modal .inp {
+    margin: 0 0 20px;
+}
+
+.form-login__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,84 @@
+@import '../../assets/sass/global/variebles.scss';
+
+.progress {
+    padding: 80px 0 100px;
+
+    .container {
+        padding: 0 145px;
+    }
+
+    &__title {
+        color: $color-black;
+        font: 900 40px/50px "Open Sans", sans-serif;
+        margin: 0 0 25px;
+
+        .mark {
+            color: $color-red;
+        }
+    }
+
+    &__item {
+        padding: 25p;
+        position: relative;
+    }
+
+    &__item-title {
+        display: flex;
+        gap: 15px;
+        justify-content: start;
+        align-items: center;
+        color: $color-black;
+        font: 900 25px/30px "Open Sans", sans-serif;
+        margin: 0;
+
+        .count {
+            color: #D9D9D9;
+            font: 900 130px/130px "Open Sans", sans-serif;
+        }
+
+    }
+
+    &__item:nth-child(2n) {
+        padding: 30% 0 0;
+    }
+
+    &__item:nth-child(2n+1) {
+        margin: -30% 0;
+    }
+
+    &__item:first-child {
+        margin: 0;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+    }
+
+    .btn-container {
+        padding: 30px 0 0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .progress {
+        &__list {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .container {
+            padding: 0 15px;
+        }
+
+        &__item:nth-child(2n) {
+            padding: 0;
+        }
+
+        &__item:nth-child(2n+1) {
+            margin: 0;
+        }
+    }
+}

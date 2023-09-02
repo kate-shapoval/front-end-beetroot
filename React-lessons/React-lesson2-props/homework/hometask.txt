@@ -1,0 +1,15 @@
+1: Створити компонетн <section>
+2: Прокидувати класс
+3: Додавати Єлементи chaild
+4: По дефолту в секції Заголовок, Параграф, (картинка з можливістю змінювати src) (Кнопка == компонентом)
+
+5: {PROPS.children} якщо є то ми додаємо margin-bottom= 50px до <img />
+
+<section class="PROPS">
+    <div class="container PROPS__container">
+        <h1 class="PROPS__title">{PROPS.title}</h1>
+        <p class="PROPS__text">{PROPS.text}</p>
+        <img src="PROPS.img" class="PROPS__img {PROPS.children}" alt="PROPS-main-img">
+        {PROPS.children}
+    </div>
+</section>

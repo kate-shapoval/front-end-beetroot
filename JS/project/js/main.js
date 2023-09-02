@@ -188,9 +188,9 @@ let favouriteList = new Favourite('favourite');
 function addToList(e, item, typeList) {
         e.preventDefault()
         if (typeList === 'cart') {
-                cartList.add(item, 'cart')
+                cartList.add(item, typeList)
         } else if (typeList === 'favourite') {
-                favouriteList.add(item, 'favourite')
+                favouriteList.add(item, typeList)
         }
 }
 const btnOpenCart = document.getElementById('btnMiniCart')

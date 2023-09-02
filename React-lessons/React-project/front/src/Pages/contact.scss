@@ -1,0 +1,133 @@
+@import '../assets/sass/global/variebles.scss';
+
+.contact {
+    padding: 40px 0 60px;
+    text-align: center;
+
+    &__item {
+        // background: $color-gray-exra-light;
+        // border: 1px solid $color-gray-light;
+        border-radius: 10px;
+        padding: 25px 25px 57px;
+        position: relative;
+    }
+
+    &__title {
+        color: $color-black;
+        font: 900 30px/40px "Open Sans", sans-serif;
+        margin: 0 0 25px;
+
+        .mark {
+            color: $color-red;
+        }
+    }
+
+    h1.contact__title {
+        font: 900 50px/60px "Open Sans", sans-serif;
+        margin: 0 0 35px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+    }
+
+    p {
+        margin: 0 0 25px;
+    }
+
+    .btn-container {
+        padding: 30px 0 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .line {
+        display: flex;
+        margin: 0 0 30px;
+
+        &--center {
+            justify-content: center;
+        }
+
+        &--text .field {
+            border-width: 1px;
+        }
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 20px;
+        position: relative;
+    }
+
+    label:before {
+        content: "";
+        background: $color-gray-exra-light;
+        border: 1px solid $color-gray-light;
+        width: 20px;
+        height: 20px;
+        border-radius: $r-4;
+    }
+
+    input:checked+label:before {
+        background: $color-red;
+        border: 1px solid $color-red;
+    }
+
+    input:checked+label:after {
+        content: "";
+        background: #fff;
+        width: 11px;
+        height: 11px;
+        border-radius: 1px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+
+    .field {
+        display: block;
+        border: solid $color-gray-light;
+        border-width: 0 0 1px;
+
+        input {
+            display: block;
+            border: none;
+            background: none;
+            outline: none;
+            padding: 10px;
+            height: 50px;
+            width: 400px;
+        }
+    }
+
+    textarea {
+        background: none;
+        border: none;
+        outline: none;
+        padding: 10px;
+        width: 400px !important;
+        height: 200px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact {
+        &__list {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .line {
+            display: block;
+        }
+
+        .field input,
+        textarea {
+            width: 100%;
+        }
+    }
+}

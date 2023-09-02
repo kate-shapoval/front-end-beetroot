@@ -1,0 +1,72 @@
+@import '../../assets/sass/global/variebles.scss';
+
+.advantages {
+    background: $color-black;
+    color: $color-white;
+    padding: 40px 0 60px;
+
+    &__title {
+        color: $color-white;
+        font: 900 40px/50px "Open Sans", sans-serif;
+        margin: 0 0 25px;
+
+        .mark {
+            color: $color-red;
+        }
+    }
+
+    &__item {
+        padding: 25px 25px 57px;
+        position: relative;
+    }
+
+    &__item-title {
+        display: flex;
+        gap: 15px;
+        justify-content: start;
+        align-items: center;
+        color: $color-white;
+        font: 900 25px/30px "Open Sans", sans-serif;
+        margin: 0 0 25px;
+
+        padding: 0 30px 0 0;
+
+
+    }
+
+    &__item:last-child &__item-title {
+        svg {
+            margin: -27px 0 0;
+        }
+    }
+
+    &__item:nth-child(2) &__item-title {
+        svg {
+            width: 70px;
+            margin: -10px 10px 0 10px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    p {
+        margin: 0 0 25px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .advantages {
+        &__list {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

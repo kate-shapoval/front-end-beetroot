@@ -1,0 +1,15 @@
+// Variables
+@import './global/variebles';
+@import './global/reset';
+@import './global/global';
+
+// @import './common/header';
+
+@import './common/footer.scss';
+
+//Components
+@import './components/buttons.scss';
+@import './components/modal.scss';
+
+//Pages
+@import './pages/home.scss';
